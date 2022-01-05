@@ -1,6 +1,6 @@
 ---
 title: "VPS整備"
-date: 2022-1-3
+date: 2022-01-04
 draft: false
 ---
 # VPS整備
