@@ -1,5 +1,5 @@
 ---
-title: "20220605"
+title: "Next.jsのページ遷移とか"
 description:
 date: 2022-06-05
 draft: false
