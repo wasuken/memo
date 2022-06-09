@@ -1,5 +1,5 @@
 ---
-title: "RubyによるCSV検索チューニング_ファイルインデックス修正.md"
+title: "RubyによるCSV検索チューニング_ファイルインデックス修正"
 description:
 date: 2022-06-08
 draft: false
