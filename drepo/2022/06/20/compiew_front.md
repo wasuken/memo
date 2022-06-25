@@ -2,7 +2,7 @@
 title: "compiewフロントエンド開発"
 description:
 date: 2022-06-20
-draft: true
+draft: false
 categories:
   - "drepo"
   - "dev"
@@ -12,4 +12,10 @@ tags:
   - "pako"
 ---
 
-描きかけ
+frontだけ書いた。
+
+pakoでパースしているが、zipはパースできないようなので別ライブラリを利用する。
+
+zlibjsかな。
+
+全体の機能とか決めてないので見た目はまだシンプルなまま。
