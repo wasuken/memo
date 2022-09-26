@@ -1,12 +1,13 @@
 ---
-title: "ログ"
+title: "ログ(Emacs, skk)"
 description:
-date: 2022-09-22
+date: 2022-09-23
 draft: false
 categories:
   - "drepo"
 tags:
   - "log"
+  - "emacs"
 ---
 
 # skk周りの設定を追加
