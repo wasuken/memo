@@ -1,5 +1,5 @@
 ---
-title: "ログ"
+title: "ログ(Reactとか)"
 description:
 date: 2022-09-22
 draft: false
