@@ -1,5 +1,5 @@
 ---
-title: "ログ(目的の次の課題はルーティング)"
+title: "ログ(bluetoothとか)"
 description:
 date: 2022-10-16
 draft: false
