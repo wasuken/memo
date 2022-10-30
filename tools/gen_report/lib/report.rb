@@ -55,7 +55,7 @@ class Report
   end
 
   def clear
-    FileUtils.rm_fr(@output_dir)
+    FileUtils.rm_rf(@output_dir)
   end
 
   public
