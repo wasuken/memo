@@ -25,6 +25,25 @@ class Report
     File.write(path, body)
   end
 
+  def generate_header(title, count)
+    d = Date.today.strftime('%Y-%m-%d')
+    <<EOF
+---
+title: "#{title}"
+description:
+date: "#{d}"
+count: #{count}
+tags:
+    - "report"
+---
+EOF
+  end
+
+  def add_header(body, header)
+    "#{header}\n\n#{body}"
+  end
+
+  # TODO カウントがまだ表示されている
   # 月ごとにHashTableで配列にして返却
   def parse_by_month_from
     return @map_month unless @map_month.keys.length.zero?
@@ -54,29 +73,33 @@ class Report
     map_month
   end
 
-  def clear
-    FileUtils.rm_rf(@output_dir)
+  def clear(dir)
+    FileUtils.rm_rf("#{@output_dir}/#{dir}")
+    @map_month = {}
   end
 
   public
 
   # 月報生成
   def generate_month_report
-    clear if @isclear
+    clear('month') if @isclear
     map_month = parse_by_month_from
 
     map_month.each_key do |k|
+      title = "月報[#{k}]"
+      cnt = 0
       body = map_month[k].map do |report|
+        cnt += report[:contents].size
         generate_separete_str(report[:header]['title']) + report[:contents]
       end.join
       dpath = "#{@output_dir}/monthly"
-      safe_write(body, dpath, "#{k}.md")
+      safe_write(add_header(body, generate_header(title, cnt)), dpath, "#{k}.md")
     end
   end
 
   # 週報生成
   def generate_week_report
-    clear if @isclear
+    clear('week') if @isclear
     map_month = parse_by_month_from
     # 月ごとにループまわす。
     # 日付ごとに1~5週くらいに分割(weeks)
@@ -89,11 +112,14 @@ class Report
         repos.each do |repo|
           week_reports << repo if days.include?(repo[:header]['date'].day)
         end
+        title = "週報[#{k}-week-#{i + 1}]"
+        cnt = 0
         body = week_reports.map do |report|
+          cnt += report[:contents].size
           generate_separete_str(report[:header]['title']) + report[:contents]
         end.join
         dpath = "#{@output_dir}/weekly/#{k}"
-        safe_write(body, dpath, "#{i}.md")
+        safe_write(add_header(body, generate_header(title, cnt)), dpath, "#{i + 1}.md")
       end
     end
   end
