@@ -74,6 +74,13 @@ EOF
   end
 
   def clear(dir)
+    case dir
+    when 'monthly' then
+    when 'weekly' then
+    else
+      puts "no clear #{dir}"
+      return
+    end
     FileUtils.rm_rf("#{@output_dir}/#{dir}")
     @map_month = {}
   end
@@ -82,7 +89,7 @@ EOF
 
   # 月報生成
   def generate_month_report
-    clear('month') if @isclear
+    clear('monthly') if @isclear
     map_month = parse_by_month_from
 
     map_month.each_key do |k|
@@ -99,7 +106,7 @@ EOF
 
   # 週報生成
   def generate_week_report
-    clear('week') if @isclear
+    clear('weekly') if @isclear
     map_month = parse_by_month_from
     # 月ごとにループまわす。
     # 日付ごとに1~5週くらいに分割(weeks)
