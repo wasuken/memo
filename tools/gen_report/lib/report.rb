@@ -99,7 +99,9 @@ EOF
       cnt = 0
       body = map_month[k].map do |report|
         cnt += report[:body].chomp.gsub("/[ |　]/", "").size
-        generate_separete_str(report[:header]["title"]) + report[:body] + "[#{report[:header]["date"]}]"
+        generate_separete_str(report[:header]["title"]) +
+          "[#{report[:header]["date"]}]\n" +
+          report[:body]
       end.join
       dpath = "#{@output_dir}/monthly"
       safe_write(add_header(body, generate_header(title, cnt, ["monthly"])), dpath, "#{k}.md") if cnt > 0
@@ -125,7 +127,9 @@ EOF
         cnt = 0
         body = week_reports.map do |report|
           cnt += report[:body].chomp.gsub("/[ |　]/", "").size
-          generate_separete_str(report[:header]["title"]) + report[:body] + "[#{report[:header]["date"]}]"
+          generate_separete_str(report[:header]["title"]) +
+            "[#{report[:header]["date"]}]\n" +
+            report[:body]
         end.join
         dpath = "#{@output_dir}/weekly"
         safe_write(add_header(body, generate_header(title, cnt, ["weekly"])), dpath, "#{k}_week_#{i + 1}.md") if cnt > 0
