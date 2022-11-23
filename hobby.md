@@ -1,27 +1,16 @@
 ---
-title: "Todo"
+title: "やりたいことスタック"
 description:
 date: 2022-11-14
 draft: false
 categories:
-  - "todo"
+  - "hobby"
 tags:
-  - "todo"
+  - "hobby"
+  - "list"
 ---
 
-ほぼメモ
-
 土日でやりたいね。
-
-# nestjs入門
-
-[作って学ぶNestJS - NestJSの強化書 βversion](https://docs.nest-book.jp/ttebunestjs)
-
-# ソース追跡
-
-[generate nest crud · shota-nukumizu/sample-rest@a3f97ea · GitHub](https://github.com/shota-nukumizu/sample-rest/commit/a3f97eace904e44959a808c86b626e242670ab13)
-
-実装を時系列的にみてるとなにすればいいのかわかりやすくていい。
 
 # 週報、月報自動化
 
