@@ -34,7 +34,10 @@ do
     case $OPT in
         d) diary ;;
         r) repo ;;
-        l) log ;;
+        l)
+			repo
+			log
+			;;
         *) echo "該当なし（OPT=$OPT）";;
     esac
 done
