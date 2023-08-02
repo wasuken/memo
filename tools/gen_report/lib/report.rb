@@ -25,8 +25,8 @@ class Report
     File.write(path, body)
   end
 
-  def generate_header(title, count, tags, description = "")
-    d = Date.today.strftime("%Y-%m-%d")
+  def generate_header(title, count, tags, description = "", d = nil)
+    d = Date.today.strftime("%Y-%m-%d") if d.nil?
     tags_str = tags.map { |tag| " - #{tag}" }.join("\n")
     <<EOF
 ---
@@ -94,17 +94,20 @@ EOF
     clear("monthly") if @isclear
     map_month = parse_by_month_from
 
+    d_list = []
     map_month.each_key do |k|
       title = "月報[#{k}]"
       cnt = 0
       body = map_month[k].map do |report|
+        d_list << report[:header]["date"]
         cnt += report[:body].chomp.gsub("/[ |　]/", "").size
         generate_separete_str(report[:header]["title"]) +
           "[#{report[:header]["date"]}]\n" +
           report[:body]
       end.join
+      d = d_list.sort.pop
       dpath = "#{@output_dir}/monthly"
-      safe_write(add_header(body, generate_header(title, cnt, ["monthly"])), dpath, "#{k}.md") if cnt > 0
+      safe_write(add_header(body, generate_header(title, cnt, ["monthly"], "", d)), dpath, "#{k}.md") if cnt > 0
     end
   end
 
@@ -120,19 +123,22 @@ EOF
       repos = map_month[k].sort { |a, b| a[:header]["date"] <=> b[:header]["date"] }
       weeks.each_with_index do |days, i|
         week_reports = []
+        d_list = []
         repos.each do |repo|
           week_reports << repo if days.include?(repo[:header]["date"].day)
         end
         title = "週報[#{k}-week-#{i + 1}]"
         cnt = 0
         body = week_reports.map do |report|
+          d_list << report[:header]["date"]
           cnt += report[:body].chomp.gsub("/[ |　]/", "").size
           generate_separete_str(report[:header]["title"]) +
             "[#{report[:header]["date"]}]\n" +
             report[:body]
         end.join
+        d = d_list.sort.pop
         dpath = "#{@output_dir}/weekly"
-        safe_write(add_header(body, generate_header(title, cnt, ["weekly"])), dpath, "#{k}_week_#{i + 1}.md") if cnt > 0
+        safe_write(add_header(body, generate_header(title, cnt, ["weekly"], "", d)), dpath, "#{k}_week_#{i + 1}.md") if cnt > 0
       end
     end
   end
