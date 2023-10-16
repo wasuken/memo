@@ -1,7 +1,7 @@
 ---
 title: "Precepts"
 description:
-date: 2023-10-16
+date: 2023-10-15
 draft: false
 categories:
   - "religion"
