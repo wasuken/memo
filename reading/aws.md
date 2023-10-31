@@ -28,6 +28,16 @@ tags:
 - Inspector 有効化： 脆弱性診断。[Amazon Inspector（アプリのセキュリティとコンプライアンスの改善をサポート）| AWS](https://aws.amazon.com/jp/inspector/)
 - Security Hub 有効化: セキュリティ関連のサービスの情報を統合して、アラートの一元管理とかできる。[AWS Security Hub とは？ - AWS Security Hub](https://docs.aws.amazon.com/ja_jp/securityhub/latest/userguide/what-is-securityhub.html)
 
+### Secrets Manager
+
+[AWS Secrets Manager を使おう！ #AWS - Qiita](https://qiita.com/hp-Genqiita/items/f93285a6058c64b39f23)
+
+API 経由で取得できるらしいのでベタガキとか.env とかにいれる必要もなくなりそう
+
+### AWS STS
+
+一時的な認証情報の発行ができる。
+
 ## CloudTrail, Config はなにがちがうんだ？
 
 [AWS CloudTrail を使用した AWS Config API コールのログ記録 - AWS Config](https://docs.aws.amazon.com/ja_jp/config/latest/developerguide/log-api-calls.html)
@@ -67,3 +77,37 @@ Athena 自体のサーバ的なインフラを用意する必要がないこと�
 ### CloudFront
 
 CDN 目的。世界中のエッジロケーションにキャッシュできる。
+
+## コンテナ
+
+## ECR
+
+プライベートの Docker hub みたいなやつ。
+
+イメージを保存、共有できる。
+
+## ECS
+
+起動タイプを EC2,Fargate から選択できる。
+
+EC2 を選択するとインスタンスの管理をこちらでおこなう必要がある。
+
+Fargate を選択すると管理しなくてもよくなる。
+
+後述の App Runner とくらべて自由度がたかい反面、煩雑そう。
+
+## App Runner
+
+ECS とくらべてすくない手順でデプロイがおこなえる。
+
+## Fargate
+
+サーバレスでコンテナを起動できるサービス
+
+EC2 みたいに OS のセットアップとかしなくていいのでその部分については手軽に構築可能。
+
+コンテナへのアクセス、docker exec コマンド等ができない。
+
+Elastic IP 等で固定 IP がふれない。
+
+次 p172 から。
