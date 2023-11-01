@@ -110,4 +110,54 @@ EC2 みたいに OS のセットアップとかしなくていいのでその部
 
 Elastic IP 等で固定 IP がふれない。
 
-次 p172 から。
+## SQS, MQ
+
+[Amazon MQ と Amazon SQS の違いと選定基準](https://zenn.dev/iwamasa/articles/b5fd0c120ce57a)
+
+SQS はなんでも
+
+MQ はインタンス生成されるため、フォーマットはほぼ固定
+
+RabbitMQ
+
+[RabbitMQ 徹底解説 #RabbitMQ - Qiita](https://qiita.com/haystacker/items/52e2fb7c5903c3f3bbf9)
+
+## EventBridge
+
+外部サービスとの接合点。
+
+IFTTT みたいだ。
+
+## Step Functions
+
+AWS 内部特化した RPA？
+
+ノーコードでワークフローを作成する。いわゆるヴィジュアルプログラミングみたいなことができる。
+
+## API Gateway
+
+API を比較的楽につくれる。
+
+REST,HTTP,WebSocket の三種類作成可能。
+
+プログラムをかく必要は当然あるが、いわゆるインフラ的な部分はほとんど AWS 側がサポートしてくれる。
+
+当然他 AWS サービスとの連携サポートもある。
+
+このサービスを経由して API を構築することにより、API、インフラ、監視等の管理が用意になる。
+
+## AppSync
+
+API Gateway とにてる。
+
+こちらでは Graphql と Pub/Sub API を利用できる。おそらく API Gateway よりそういった部分が特化されてる(推測)。
+
+Pub/Sub API は WebSocket 接続しているクライアントへのデータ発行をおこなえる。
+
+## SES
+
+メール送信 API
+
+大量のメール配信、認証関連の設定を比較的楽に用意できるのが利点。
+
+P196 まで
