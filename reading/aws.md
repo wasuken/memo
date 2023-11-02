@@ -161,3 +161,113 @@ Pub/Sub API は WebSocket 接続しているクライアントへのデータ発
 大量のメール配信、認証関連の設定を比較的楽に用意できるのが利点。
 
 P196 まで
+
+## QuickSight、Glue
+
+Glue は ETL(Extract(抽出), Transform(変換), Load(かきだし))を担当する。
+
+分析部分は Athena、Redshift でおこなう。
+
+QuickSight が BI ツール。可視化部分を担当する。
+
+[ETL とは？３つの機能とツールの必要性を知ってデータを有効活用！｜ IT トレンド](https://it-trend.jp/etl/article/function)
+
+## Data Pipeline
+
+指定された間隔でおもに AWS のコンピューティング、ストレージサービスにたいして特定の処理を実行するサービス。
+
+[AWS Data Pipeline（データの移動や変換を簡単に自動化）| AWS](https://aws.amazon.com/jp/datapipeline/)
+
+## Code 系
+
+### CodeCommit
+
+バージョン管理
+
+### CodeBuild
+
+ビルドする。Apache maven,Gradle 等の環境を指定して用意することも可能。
+
+### CodeDeploy
+
+Lambda,ECS,EC2 等へデプロイする
+
+### CodePipeline
+
+上記のような流れをまとめる箇所。
+
+## Direct Connect
+
+専用線。
+
+回線速度や暗号化方式等指定可能。
+
+AWS Direct Connect ロケーションまでの線は自分で用意する必要がある。
+
+## DataSync
+
+オンプレデータから AWS へのデータ転送を自動化する。
+
+[特徴 - AWS DataSync | AWS](https://aws.amazon.com/jp/datasync/features/?pg=ln&sec=hs)
+
+専用の転送プロトコルを利用してたりする。
+
+## Amazon Managed Blockchain
+
+ブロックチェーンネットワークごと用意してくれるサービス。
+
+一気につくってくれるフルマネージド型と
+
+フレームワークの選択ができる型がある。
+
+## IoT core
+
+IoT の、
+
+デバイスとサーバ間をとりもつサービス。
+
+実装には SDK をつかう。
+
+[MQTT とは | かもめエンジニアリング](https://kfep.jp/solution/iot-mqtt/mqtt)
+
+## IoT Greengrass
+
+core にちかいが、core が通信部分のみにたいして、
+
+こちらはデバイス内部の実装コードまで管理をおこなう。
+
+## SageMaker
+
+機械学習プラットフォーム。フルマネージド型。
+
+機械学習自体のあれこれを提供する。
+
+jupyter notebook を内包している。
+
+## Recognition
+
+学習済モデルをつかって、動画、画像の分析をおこなうサービス。
+
+## Textract
+
+ざっくりいえば画像からテキストを抽出するサービス
+
+OCR、手書き文字をふくむ画像、PDF 等とけっこう対応してる。
+
+## CloudWatch
+
+ログアラート、分析等。
+
+IAM の次くらいに AWS をつかうなら皆お世話になる？さわることが必須になるサービス。
+
+## CloudFormation
+
+Terraform の AWS 特化版？
+
+IoC
+
+## Compute Optimizer
+
+機械学習で EC2 などの最適なリソース配分をおしえてくれる。
+
+EC2,EBS,Lambda 等は対応しているが、それ以外はけっこう対応していない(Watch,rds)。
