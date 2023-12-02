@@ -7,6 +7,7 @@ categories:
   - "reading"
 tags:
   - "islam"
+  - "religion"
 ---
 
 本: [図説　イスラム教の歴史 :菊地　達也｜河出書房新社](https://www.kawade.co.jp/np/isbn/9784309762623/)
