@@ -16,6 +16,7 @@ draft: false
 
 # Directory Map
 
+```
 .
 ├── anime
 ├── diary -- 日記(廃止)
@@ -29,3 +30,4 @@ draft: false
 ├── religion -- 自作宗教
 ├── templates -- テンプレート集
 └── tools -- ツール。だいたい ruby
+```
